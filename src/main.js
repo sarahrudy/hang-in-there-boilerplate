@@ -1,13 +1,6 @@
 // query selector variables go here 👇
 // adds communications from javascript to the dom
 
-
-// Pseudocode: What do we want this page to do?
-// 1. Use event listener on "Show Another Random Poster" button, when clicked,
-// this will change the image to a random one.
-// 2. Quote, Title, and Image will change when this button is clicked as well.
-
-
 //returns first element in document that matches the specified selector. If no matches are found, null is returned.
 // There are no global variables aside from query selectors, currentPoster, images, titles, quotes, and savedPosters.
 
@@ -119,8 +112,25 @@ var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
 var randomImgBtn = document.querySelector(".show-random");
 
+// Pseudocode: What do we want this page to do?
+// 1. Use event listener on "Show Another Random Poster" button, when clicked,
+// this will change the image to a random one.
+// 2. Quote, Title, and Image will change when this button is clicked as well.
 
 randomImgBtn.addEventListener("click", newPoster);
+// create an event listener for "Make Your Own Poster" button that brings us to a page where we can input
+// values for image, quote, and title we choose
+
+
+// when user clicks "View Saved Posters" button, we will see the saved posters area, and the main
+// poster should be hidden
+
+// when a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the
+// main poster section
+
+// overall goal is to be able to switch between the three views (main poster, form, and saved poster)
+// on the correct button clicks
+
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
@@ -131,7 +141,6 @@ function newPoster() {
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
 }
-
 
 // write functions to manipulate the elements
 
