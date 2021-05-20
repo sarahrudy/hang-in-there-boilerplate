@@ -1,4 +1,15 @@
 // query selector variables go here 👇
+// adds communications from javascript to the dom
+
+
+// Pseudocode: What do we want this page to do?
+// 1. Use event listener on "Show Another Random Poster" button, when clicked,
+// this will change the image to a random one.
+// 2. Quote, Title, and Image will change when this button is clicked as well.
+
+
+//returns first element in document that matches the specified selector. If no matches are found, null is returned.
+// There are no global variables aside from query selectors, currentPoster, images, titles, quotes, and savedPosters.
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -102,10 +113,38 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
+// EventListener.handleEvent() - takes input from a user and does something with it
+var posterImage = document.querySelector(".poster-img");
+var posterTitle = document.querySelector(".poster-title");
+var posterQuote = document.querySelector(".poster-quote");
+var randomImgBtn = document.querySelector(".show-random");
 
-// functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
 function getRandomIndex(array) {
+  // Math.floor makes sure it rounds down to nearest whole integer
+  // takes an argument of a random number which is equal to array.length which makes sure it's not returning a number that's outside the number of elements in array
   return Math.floor(Math.random() * array.length);
 }
 
+randomImgBtn.addEventListener("click", function() {
+  posterImage.src = images[getRandomIndex(images)];
+  posterTitle.innerText = titles[getRandomIndex(titles)];
+  posterQuote.innerText = quotes[getRandomIndex(quotes)];
+} )
+
+// functions and event handlers go here 👇
+
+// write functions to manipulate the elements
+
+// event.preventDefault() {
+//
+// }
+
+// addEventListener() - handlers used to verify user input and browser actions
+// look at which ones might be useful to us in this project
+
+// (we've provided one for you to get you started)!
+// declare a function to get a random index with a parameter array
+//function getRandomIndex(array) {
+  // Math.floor makes sure it rounds down to nearest whole integer
+  // takes an argument of a random number which is equal to array.length which makes sure it's not returning a number that's outside the number of elements in array
+//  return Math.floor(Math.random() * array.length);
