@@ -119,19 +119,19 @@ var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
 var randomImgBtn = document.querySelector(".show-random");
 
+
+randomImgBtn.addEventListener("click", newPoster);
+
+// functions and event handlers go here 👇
 function getRandomIndex(array) {
-  // Math.floor makes sure it rounds down to nearest whole integer
-  // takes an argument of a random number which is equal to array.length which makes sure it's not returning a number that's outside the number of elements in array
   return Math.floor(Math.random() * array.length);
 }
-
-randomImgBtn.addEventListener("click", function() {
+function newPoster() {
   posterImage.src = images[getRandomIndex(images)];
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
-} )
+}
 
-// functions and event handlers go here 👇
 
 // write functions to manipulate the elements
 
