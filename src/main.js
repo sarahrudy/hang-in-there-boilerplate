@@ -1,14 +1,10 @@
 // query selector variables go here 👇
-// adds communications from javascript to the dom
-
-//returns first element in document that matches the specified selector. If no matches are found, null is returned.
-
+// move query selector variables here before submitting
 // when a user inputs its info, you should be able to save it in this array
 var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-// There are no global variables aside from query selectors, currentPoster, images, titles, quotes, and savedPosters.
 window.onload = newPoster
 var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
@@ -17,23 +13,17 @@ var randomImgBtn = document.querySelector(".show-random");
 var form = document.querySelector(".poster-form");
 var showFormBtn = document.querySelector(".show-form");
 var mainPage = document.querySelector(".main-poster");
+var goBackBtn = document.querySelector(".show-main");
+var showSavedBtn = document.querySelector(".show-saved");
+var showSaved = document.querySelector(".saved-posters");
+var backToMainBtn = document.querySelector(".back-to-main")
 
 randomImgBtn.addEventListener("click", newPoster);
-// get form to open
-showFormBtn.addEventListener("click", showFormBtn);
-
-// create an event listener for "Make Your Own Poster" button that brings us to a page where we can input
-// values for image, quote, and title we choose
-
-
-// when user clicks "View Saved Posters" button, we will see the saved posters area, and the main
-// poster should be hidden
-
-// when a user clicks the "Nevermind, take me back!" or "Back to Main" buttons, we should only see the
-// main poster section
-
-// overall goal is to be able to switch between the three views (main poster, form, and saved poster)
-// on the correct button clicks
+showFormBtn.addEventListener("click", showForm);
+goBackBtn.addEventListener("click", goBackToHomePage);
+// could possibly use hideShowMainPage in place of showForm and goBackToHomePage
+showSavedBtn.addEventListener("click", showSavedPosters);
+backToMainBtn.addEventListener("click", hideShowMainPage);
 
 
 // functions and event handlers go here 👇
@@ -45,18 +35,31 @@ function newPoster() {
   posterTitle.innerText = titles[getRandomIndex(titles)];
   posterQuote.innerText = quotes[getRandomIndex(quotes)];
 }
-
-function showFormBtn () {
-  form.classList.remove("hidden");
-  mainPage.classList.add("hidden");
-  window.open(form)
+function hideShowMainPage() {
+  showSaved.classList.toggle("hidden");
+  mainPage.classList.toggle("hidden");
 }
 
+function showForm() {
+  event.preventDefault();
+  hide(form, true);
+  hide(mainPage, false);
+}
 
-// event.preventDefault() {
-// (we've provided one for you to get you started)!
-// declare a function to get a random index with a parameter array
-//function getRandomIndex(array) {
-  // Math.floor makes sure it rounds down to nearest whole integer
-  // takes an argument of a random number which is equal to array.length which makes sure it's not returning a number that's outside the number of elements in array
-//  return Math.floor(Math.random() * array.length);
+function showSavedPosters() {
+  hide(showSaved, true);
+  hide(mainPage, false);
+}
+
+function goBackToHomePage() {
+  hide(form, false);
+  hide(mainPage, true);
+}
+// checking if element has a hidden class, you want to remove it, if it doesn't, you want to add it
+function hide(element, hidden) {
+    if (hidden) {
+      element.classList.remove('hidden');
+    } else {
+      element.classList.add('hidden');
+    }
+  }
