@@ -60,4 +60,3 @@ function showFormBtn () {
   // Math.floor makes sure it rounds down to nearest whole integer
   // takes an argument of a random number which is equal to array.length which makes sure it's not returning a number that's outside the number of elements in array
 //  return Math.floor(Math.random() * array.length);
-// TEST
