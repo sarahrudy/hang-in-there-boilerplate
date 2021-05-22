@@ -70,3 +70,14 @@ function hide(element, hidden) {
       element.classList.add('hidden');
     }
   }
+
+function showMyPoster() {
+  event.preventDefault();
+  goBackToHomePage();
+  posterImage.src = posterImgInput.value;
+  posterTitle.innerText = posterTitleInput.value;
+  posterQuote.innerText = posterQuoteInput.value;
+  images.push(posterImgInput.value);
+  titles.push(posterTitleInput.value);
+  quotes.push(posterQuoteInput.value);
+}
