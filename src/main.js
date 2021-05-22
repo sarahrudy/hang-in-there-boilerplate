@@ -2,7 +2,6 @@
 // move query selector variables here before submitting
 // when a user inputs its info, you should be able to save it in this array
 var savedPosters = [];
-var currentPoster;
 
 // event listeners go here 👇
 window.onload = newPoster
@@ -25,6 +24,8 @@ var posterQuoteInput = document.getElementById("poster-quote");
 
 var saveMyPosterBtn = document.querySelector(".save-poster");
 var savedPostersGrid = document.querySelector(".saved-posters-grid");
+
+var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
 
 randomImgBtn.addEventListener("click", newPoster);
 showFormBtn.addEventListener("click", showForm);
@@ -64,16 +65,15 @@ function showSavedPosters() {
   hide(showSaved, true);
   hide(mainPage, false);
 //  savedPostersGrid.classList.add("mini-poster");
+
   for (var i = 0; i < savedPosters.length; i++) {
     savedHTML += `<article class = "mini-poster">
-    <img src = ${savedPosters[i].source} />
+    <img src = ${savedPosters[i].imageURL} />
     <h2> ${savedPosters[i].title} </h2>
     <h4> ${savedPosters[i].quote} </h4>
     </article>`;
   }
-
   savedPostersGrid.innerHTML = savedHTML;
-
 }
 
 function goBackToHomePage() {
@@ -101,9 +101,12 @@ function showMyPoster() {
 }
 
 function saveMyPoster() {
-  savedPosters.push( {
-    source: posterImage.src,
-    title: posterTitle.innerHTML,
-    quote: posterQuote.innerHTML
-  });
-}
+  // currentPoster = {
+  //   source: posterImage.src,
+  //   title: posterTitle.innerHTML,
+  //   quote: posterQuote.innerHTML
+  // }
+  if (!savedPosters.includes(currentPoster)) {
+    savedPosters.push(currentPoster);
+    }
+  }
