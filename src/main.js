@@ -5,7 +5,7 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-//window.onload = newPoster
+window.onload = newPoster
 var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
@@ -17,10 +17,14 @@ var goBackBtn = document.querySelector(".show-main");
 var showSavedBtn = document.querySelector(".show-saved");
 var showSaved = document.querySelector(".saved-posters");
 var backToMainBtn = document.querySelector(".back-to-main");
+
 var showMyPosterBtn = document.querySelector(".make-poster");
 var posterImgInput = document.getElementById("poster-image-url");
 var posterTitleInput = document.getElementById("poster-title");
 var posterQuoteInput = document.getElementById("poster-quote");
+
+var saveMyPosterBtn = document.querySelector(".save-poster");
+var savedPostersGrid = document.querySelector(".saved-posters-grid");
 
 randomImgBtn.addEventListener("click", newPoster);
 showFormBtn.addEventListener("click", showForm);
@@ -29,6 +33,7 @@ goBackBtn.addEventListener("click", goBackToHomePage);
 showSavedBtn.addEventListener("click", showSavedPosters);
 backToMainBtn.addEventListener("click", hideShowMainPage);
 showMyPosterBtn.addEventListener("click", showMyPoster);
+saveMyPosterBtn.addEventListener("click", saveMyPoster);
 
 
 // functions and event handlers go here 👇
@@ -56,6 +61,7 @@ function showForm() {
 function showSavedPosters() {
   hide(showSaved, true);
   hide(mainPage, false);
+  showSavedPosters.push(".mini-poster");
 }
 
 function goBackToHomePage() {
@@ -80,4 +86,8 @@ function showMyPoster() {
   images.push(posterImgInput.value);
   titles.push(posterTitleInput.value);
   quotes.push(posterQuoteInput.value);
+}
+
+function saveMyPoster() {
+  savedPosters.push(posterImage.src, posterTitle.innerText, posterQuote.innerText);
 }
