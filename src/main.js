@@ -1,5 +1,4 @@
 // query selector variables go here 👇
-
 window.onload = newPoster;
 var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
@@ -23,7 +22,6 @@ var savedPosters = [];
 var currentPoster;
 
 // event listeners go here 👇
-
 randomImgBtn.addEventListener("click", newPoster);
 showFormBtn.addEventListener("click", showForm);
 goBackBtn.addEventListener("click", goBackToHomePage);
@@ -31,6 +29,8 @@ showSavedBtn.addEventListener("click", showSavedPosters);
 backToMainBtn.addEventListener("click", hideShowMainPage);
 showMyPosterBtn.addEventListener("click", showMyPoster);
 saveMyPosterBtn.addEventListener("click", saveMyPoster);
+savedPostersGrid.addEventListener("dblclick", deletePoster);
+
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
@@ -69,11 +69,12 @@ function showSavedPosters() {
   hide(showSaved, true);
   hide(mainPage, false);
   for (var i = 0; i < savedPosters.length; i++) {
-    savedHTML += `<article class = "mini-poster">
-    <img src = ${savedPosters[i].imageURL} />
-    <h2> ${savedPosters[i].title} </h2>
-    <h4> ${savedPosters[i].quote} </h4>
-    </article>`;
+    var posterObject = savedPosters[i];
+    savedHTML += `<section class = "mini-poster" id = ${posterObject.id}>
+      <img id = ${posterObject.id} src = ${posterObject.imageURL}>
+      <h2 id = ${posterObject.id}> ${posterObject.title} </h2>
+      <h4 id = ${posterObject.id}> ${posterObject.quote} </h4>
+      </section>`;
   }
   savedPostersGrid.innerHTML = savedHTML;
 }
@@ -107,4 +108,13 @@ function saveMyPoster() {
   if (!savedPosters.includes(currentPoster)){
   savedPosters.push(currentPoster);
  }
+}
+
+function deletePoster(event) {
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id == event.target.id) {
+      savedPosters.splice(i, 1);
+    }
+  }
+  showSavedPosters();
 }
