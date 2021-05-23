@@ -1,11 +1,6 @@
 // query selector variables go here 👇
-// move query selector variables here before submitting
-// when a user inputs its info, you should be able to save it in this array
-var savedPosters = [];
-var currentPoster;
 
-// event listeners go here 👇
-window.onload = newPoster
+window.onload = newPoster;
 var posterImage = document.querySelector(".poster-img");
 var posterTitle = document.querySelector(".poster-title");
 var posterQuote = document.querySelector(".poster-quote");
@@ -17,24 +12,25 @@ var goBackBtn = document.querySelector(".show-main");
 var showSavedBtn = document.querySelector(".show-saved");
 var showSaved = document.querySelector(".saved-posters");
 var backToMainBtn = document.querySelector(".back-to-main");
-
 var showMyPosterBtn = document.querySelector(".make-poster");
 var posterImgInput = document.getElementById("poster-image-url");
 var posterTitleInput = document.getElementById("poster-title");
 var posterQuoteInput = document.getElementById("poster-quote");
-
 var saveMyPosterBtn = document.querySelector(".save-poster");
 var savedPostersGrid = document.querySelector(".saved-posters-grid");
+
+var savedPosters = [];
+var currentPoster;
+
+// event listeners go here 👇
 
 randomImgBtn.addEventListener("click", newPoster);
 showFormBtn.addEventListener("click", showForm);
 goBackBtn.addEventListener("click", goBackToHomePage);
-// could possibly use hideShowMainPage in place of showForm and goBackToHomePage
 showSavedBtn.addEventListener("click", showSavedPosters);
 backToMainBtn.addEventListener("click", hideShowMainPage);
 showMyPosterBtn.addEventListener("click", showMyPoster);
 saveMyPosterBtn.addEventListener("click", saveMyPoster);
-
 
 // functions and event handlers go here 👇
 function getRandomIndex(array) {
@@ -72,8 +68,6 @@ function showSavedPosters() {
   var savedHTML = "";
   hide(showSaved, true);
   hide(mainPage, false);
-//  savedPostersGrid.classList.add("mini-poster");
-
   for (var i = 0; i < savedPosters.length; i++) {
     savedHTML += `<article class = "mini-poster">
     <img src = ${savedPosters[i].imageURL} />
@@ -88,14 +82,14 @@ function goBackToHomePage() {
   hide(formPage, false);
   hide(mainPage, true);
 }
-// checking if element has a hidden class, you want to remove it, if it doesn't, you want to add it
+
 function hide(element, hidden) {
-    if (hidden) {
-      element.classList.remove('hidden');
-    } else {
-      element.classList.add('hidden');
-    }
+  if (hidden) {
+    element.classList.remove('hidden');
+  } else {
+    element.classList.add('hidden');
   }
+}
 
 function showMyPoster() {
   event.preventDefault();
@@ -112,14 +106,5 @@ function showMyPoster() {
 function saveMyPoster() {
   if (!savedPosters.includes(currentPoster)){
   savedPosters.push(currentPoster);
- };
-};
-  // // currentPoster = {
-  // //   source: posterImage.src,
-  // //   title: posterTitle.innerHTML,
-  // //   quote: posterQuote.innerHTML
-  // // }
-  // if (!savedPosters.includes(currentPoster)) {
-  //   savedPosters.push(currentPoster);
-  //   }
-  // }
+ }
+}
