@@ -1,17 +1,35 @@
 # Hang In There
 
-A boilerplate repo.
+Deploy website using this [link](file:///Users/sarahrudy/hang-in-there-boilerplate/index.html)!
 
-## Set Up
+[Project Instructions](https://frontend.turing.io/projects/module-1/hang-in-there.html)
 
-1. One teammate: fork this repository
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. Add all project partners and your assigned instructor as collaborators on the repository
+## Contributors
 
-Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
+- Eric Li
+- Sarah Rudy
+- Heather Faerber
 
-3:
+## Technologies Used
 
-README is well formatted and gives good context about the project. At minimum, a sufficient README should contain - contributors, technologies used, instructions for running and viewing the project, deploy link (gh-pages), images/GIFs if necessary, future additions, etc. Think about what a user needs to understand and get the full picture of the application.
+- JavaScript
+    - Event Listeners
+    - Event Handlers
+    - Event Bubbling
+    - Query Selectors
+    - for Loops
+    - Conditional Statements
+    - Object Manipulation
+- HTML
+- CSS
+- Git Workflow
+
+## User Instructions
+
+Explore using this [link](file:///Users/sarahrudy/hang-in-there-boilerplate/index.html)! Click on the buttons to navigate the page, show random posters, add to saved posters, show saved posters, and you can even make your own poster and add it to saved posters. If you want to delete a poster you've saved, you can remove it by double clicking.
+
+## Future Additions
+
+ - Hover Pointer - when a user hovers over a button or poster, the cursor turns into a hand pointing to the feature.
+ - Input Boxes with Choices - when a user clicks the input field, a dropdown box of existing options shows for image, title, and quote.
+ - CSS Styling - rounded edges, different border colors, different font colors, etc.
