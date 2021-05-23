@@ -2,6 +2,7 @@
 // move query selector variables here before submitting
 // when a user inputs its info, you should be able to save it in this array
 var savedPosters = [];
+var currentPoster;
 
 // event listeners go here 👇
 window.onload = newPoster
@@ -25,8 +26,6 @@ var posterQuoteInput = document.getElementById("poster-quote");
 var saveMyPosterBtn = document.querySelector(".save-poster");
 var savedPostersGrid = document.querySelector(".saved-posters-grid");
 
-var currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText);
-
 randomImgBtn.addEventListener("click", newPoster);
 showFormBtn.addEventListener("click", showForm);
 goBackBtn.addEventListener("click", goBackToHomePage);
@@ -42,10 +41,19 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+function posterInstance () {
+  currentPoster = new Poster (
+  posterImgInput.value,
+  posterTitleInput.value,
+  posterQuoteInput.value,
+  )
+}
+
 function newPoster() {
-  posterImage.src = images[getRandomIndex(images)];
-  posterTitle.innerText = titles[getRandomIndex(titles)];
-  posterQuote.innerText = quotes[getRandomIndex(quotes)];
+  posterImage.src = images[getRandomIndex(images)],
+  posterTitle.innerText = titles[getRandomIndex(titles)],
+  posterQuote.innerText = quotes[getRandomIndex(quotes)]
+  currentPoster = new Poster(posterImage.src, posterTitle.innerText, posterQuote.innerText)
 }
 
 function hideShowMainPage() {
@@ -98,15 +106,20 @@ function showMyPoster() {
   images.push(posterImgInput.value);
   titles.push(posterTitleInput.value);
   quotes.push(posterQuoteInput.value);
+  posterInstance();
 }
 
 function saveMyPoster() {
-  // currentPoster = {
-  //   source: posterImage.src,
-  //   title: posterTitle.innerHTML,
-  //   quote: posterQuote.innerHTML
+  if (!savedPosters.includes(currentPoster)){
+  savedPosters.push(currentPoster);
+ };
+};
+  // // currentPoster = {
+  // //   source: posterImage.src,
+  // //   title: posterTitle.innerHTML,
+  // //   quote: posterQuote.innerHTML
+  // // }
+  // if (!savedPosters.includes(currentPoster)) {
+  //   savedPosters.push(currentPoster);
+  //   }
   // }
-  if (!savedPosters.includes(currentPoster)) {
-    savedPosters.push(currentPoster);
-    }
-  }
