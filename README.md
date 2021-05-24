@@ -26,7 +26,7 @@ Deploy website using this [link](file:///Users/sarahrudy/hang-in-there-boilerpla
 
 ## User Instructions
 
-Explore using this [link](file:///Users/sarahrudy/hang-in-there-boilerplate/index.html)! Click on the buttons to navigate the page, show random posters, add to saved posters, show saved posters, and you can even make your own poster and add it to saved posters. If you want to delete a poster you've saved, you can remove it by double clicking.
+Explore using this [link](https://sarahrudy.github.io/hang-in-there-boilerplate/)! Click on the buttons to navigate the page, show random posters, add to saved posters, show saved posters, and you can even make your own poster and add it to saved posters. If you want to delete a poster you've saved, you can remove it by double clicking.
 
 ## Future Additions
 
