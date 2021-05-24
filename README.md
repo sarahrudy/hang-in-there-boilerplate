@@ -1,6 +1,6 @@
 # Hang In There
 
-Deploy website using this [link](file:///Users/sarahrudy/hang-in-there-boilerplate/index.html)!
+Deploy website using this [link](https://sarahrudy.github.io/hang-in-there-boilerplate/)!
 
 [Project Instructions](https://frontend.turing.io/projects/module-1/hang-in-there.html)
 
